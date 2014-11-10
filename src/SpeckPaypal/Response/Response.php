@@ -215,9 +215,9 @@ class Response
      * @return array
      */
     protected function extractKeyValues($key) {
-        $formattedKey = substr(str_replace("L_", "", $key), 0, -preg_match_all( "/[0-9]/", $key ));
+        $formattedKey = substr(str_replace("L_", "", $key), 0, -preg_match_all( "/[0-9]/", $key, $out ));
         return array(
-            substr($key, -preg_match_all( "/[0-9]/", $key )),
+            substr($key, -preg_match_all( "/[0-9]/", $key,$out )),
             $this->getMappedKeyName($formattedKey),
             $formattedKey
         );
